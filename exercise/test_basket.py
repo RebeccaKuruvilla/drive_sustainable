@@ -17,5 +17,11 @@ class TestBasket(unittest.TestCase):
         expected_price = (Basket.item_prices["apple"] * 2) + (Basket.item_prices["banana"] * 4)
         self.assertEqual(total_price, expected_price)
 
+    def test_clear_basket(self):
+        self.basket.add_item("grapes", 5)
+        result = self.basket.clear_basket()
+        self.assertTrue(result)
+        self.assertEqual(len(self.basket.items), 0)
+    
 if __name__ == '__main__':
     unittest.main()
